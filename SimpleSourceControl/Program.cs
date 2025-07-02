@@ -22,6 +22,7 @@ public class SimpleSourceControl
                 "Why was the computer cold? \nIt left its Windows open. "
         };
         CommonBugs();
+        ComputerPuns();
     }
 
     static void CommonBugs()
@@ -42,5 +43,24 @@ public class SimpleSourceControl
         Console.WriteLine("\nI think you were expecting software bugs" +
             "\nJust a little play on words");
     }
- 
+    static void ComputerPuns()
+    {
+        Console.WriteLine();
+        String[] badPuns =
+        {
+                "Why do Java developers wear glasses? \nBecause they don’t C#.",
+                "What do computers snack on during break? \nMicrochips and cookies.",
+                "Why was the computer cold? \nIt left its Windows open. "
+        };
+        Random random = new Random();
+        // Randomly select a pun from the array 
+        // shuffle array by going backwards through the array
+        for (int i = badPuns.Length - 1; i > 0; i--)
+        {
+            // have to use integer division to get a random index
+            // it's not like Java.
+            int laugh = random.Next(0, badPuns.Length);
+            Console.WriteLine(badPuns[laugh]);
+        }
+    }
 }
