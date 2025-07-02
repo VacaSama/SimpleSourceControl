@@ -23,6 +23,7 @@ public class SimpleSourceControl
         };
         CommonBugs();
         ComputerPuns();
+        FeedBack();
     }
 
     static void CommonBugs()
@@ -45,7 +46,7 @@ public class SimpleSourceControl
     }
     static void ComputerPuns()
     {
-        Console.WriteLine();
+        Console.WriteLine("\nNow it's time for a computer pun :p ");
         String[] badPuns =
         {
                 "Why do Java developers wear glasses? \nBecause they don’t C#.",
@@ -53,14 +54,34 @@ public class SimpleSourceControl
                 "Why was the computer cold? \nIt left its Windows open. "
         };
         Random random = new Random();
-        // Randomly select a pun from the array 
-        // shuffle array by going backwards through the array
-        for (int i = badPuns.Length - 1; i > 0; i--)
-        {
+
             // have to use integer division to get a random index
             // it's not like Java.
-            int laugh = random.Next(0, badPuns.Length);
+            int laugh = random.Next(badPuns.Length);
             Console.WriteLine(badPuns[laugh]);
+    }
+    static void FeedBack()
+    {
+        Console.WriteLine("\nDid you enjoy your randomly selected pun? (YES/NO) ");
+        string response = Console.ReadLine();
+
+        if (response == "yes")
+        {
+            Console.WriteLine("Yay, I'm glad you liked it");
+            Console.WriteLine("See ya, next time.");
+        }
+        else if (response == "no")
+        {
+            Console.WriteLine("Aww, I'm sorry to hear that. " +
+                "I will try harder next time.");
+            Console.WriteLine("See ya, next time.");
+        }
+        else
+        {
+            Console.WriteLine("I don't understand your response. " +
+                "Please try again.");
+            // Call the method again to get feedback
+            FeedBack();
         }
     }
 }
