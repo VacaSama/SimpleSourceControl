@@ -22,10 +22,11 @@ public class SimpleSourceControl
                 "Why was the computer cold? \nIt left its Windows open. "
         };
         CommonBugs();
-        ComputerPuns();
+        ComputerPuns(badPuns);
         FeedBack();
     }
 
+    // branch the methods off so that they can be tested independently?
     static void CommonBugs()
     {
         Console.WriteLine("There is a change below");
@@ -44,15 +45,9 @@ public class SimpleSourceControl
         Console.WriteLine("\nI think you were expecting software bugs" +
             "\nJust a little play on words");
     }
-    static void ComputerPuns()
+    static void ComputerPuns(string[] badPuns)
     {
         Console.WriteLine("\nNow it's time for a computer pun :p ");
-        String[] badPuns =
-        {
-                "Why do Java developers wear glasses? \nBecause they don’t C#.",
-                "What do computers snack on during break? \nMicrochips and cookies.",
-                "Why was the computer cold? \nIt left its Windows open. "
-        };
         Random random = new Random();
 
             // have to use integer division to get a random index
@@ -62,7 +57,7 @@ public class SimpleSourceControl
     }
     static void FeedBack()
     {
-        Console.WriteLine("\nDid you enjoy your randomly selected pun? (YES/NO) ");
+        Console.WriteLine("\nDid you enjoy your randomly selected pun? (yes/no) ");
         string response = Console.ReadLine();
 
         if (response == "yes")
