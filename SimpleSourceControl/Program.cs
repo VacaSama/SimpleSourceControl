@@ -84,7 +84,7 @@ public class SimpleSourceControl
     static void welcomeMessage() { 
         Console.WriteLine("Welcome to my Source Control, Mini Project for CPW 211,");
         Console.WriteLine("Here you'll find bugs you'll run into.");
-        Console.WriteLine("How to debug, and you will be given a randomly generated CPU pun.);
+        Console.WriteLine("How to debug, and you will be given a randomly generated CPU pun.");
         Console.WriteLine();
     }
 }
