@@ -2,6 +2,8 @@
 
 using System.Net;
 using System.Security.Cryptography;
+using System.Collections;
+
 
 /**
  * @Author: Kourtnie M.
@@ -15,12 +17,12 @@ public class SimpleSourceControl
     static void Main(String[] args)
     {
         Console.WriteLine("Hello, Source Control!");
-        String[] badPuns =
-        {
-                "Why do Java developers wear glasses? \nBecause they don’t C#.",
-                "What do computers snack on during break? \nMicrochips and cookies.",
-                "Why was the computer cold? \nIt left its Windows open. "
-        };
+        ArrayList badPuns = new ArrayList();
+        
+        badPuns.Add("Why do Java developers wear glasses? \nBecause they don’t C#.");
+        badPuns.Add ("What do computers snack on during break? \nMicrochips and cookies.");
+        badPuns.Add("Why was the computer cold? \nIt left its Windows open.");
+
         CommonBugs();
         ComputerPuns(badPuns);
         FeedBack();
@@ -45,14 +47,14 @@ public class SimpleSourceControl
         Console.WriteLine("\nI think you were expecting software bugs" +
             "\nJust a little play on words");
     }
-    static void ComputerPuns(string[] badPuns)
+    static void ComputerPuns(ArrayList badPuns)
     {
         Console.WriteLine("\nNow it's time for a computer pun :p ");
         Random random = new Random();
 
             // have to use integer division to get a random index
             // it's not like Java.
-            int laugh = random.Next(badPuns.Length);
+            int laugh = random.Next(badPuns.Count);
             Console.WriteLine(badPuns[laugh]);
     }
     static void FeedBack()
