@@ -1,6 +1,4 @@
-﻿
-
-using System.Net;
+﻿using System.Net;
 using System.Security.Cryptography;
 using System.Collections;
 
@@ -17,35 +15,37 @@ public class SimpleSourceControl
     static void Main(String[] args)
     {
         Console.WriteLine("Hello, Source Control!");
+        //--------ArrayList for ComputerPuns()----------
         ArrayList badPuns = new ArrayList();
-        
         badPuns.Add("Why do Java developers wear glasses? \nBecause they don’t C#.");
         badPuns.Add ("What do computers snack on during break? \nMicrochips and cookies.");
         badPuns.Add("Why was the computer cold? \nIt left its Windows open.");
-
-        CommonBugs();
+        // --------ArrayList for CommonBugs()----------
+        ArrayList bugs = new ArrayList();
+        bugs.Add("Praying Mantis");
+        bugs.Add("Cockroach");
+        bugs.Add("Stinkbug");
+        bugs.Add("Bumble Bee");
+        bugs.Add("Ladybug");
+        //--------functions/method calls----------
+        CommonBugs(bugs);
         ComputerPuns(badPuns);
         FeedBack();
     }
 
-    // branch the methods off so that they can be tested independently?
-    static void CommonBugs()
+    static void CommonBugs(ArrayList bugs)
     {
         Console.WriteLine("There is a change below");
         Console.WriteLine("Here are some common bugs you may encounter: ");
-        String[] bugs = {
-                "Praying Mantis",
-                "Cockroach",
-                "Stink Bug",
-                "Bumble Bee"};
 
         foreach (String bug in bugs)
         {
-            Console.Write(bug + " ");
+            Console.Write(bug + "." + " ");
+
         }
         Console.WriteLine();
-        Console.WriteLine("\nI think you were expecting software bugs" +
-            "\nJust a little play on words");
+        Console.WriteLine("\nI think you were expecting software bugs," +
+            "\nJust a little play on words.");
     }
     static void ComputerPuns(ArrayList badPuns)
     {
@@ -69,8 +69,12 @@ public class SimpleSourceControl
         }
         else if (response == "no")
         {
-            Console.WriteLine("Aww, I'm sorry to hear that. " +
-                "I will try harder next time.");
+            // since the user said no-- ask them if they have a CPU related pun
+            // that they would like to add to the list. 
+            // Console.ReadLine() -Needed
+            // it will then be added to the list. The answer needs to be separated by \n
+            Console.WriteLine("Darn, I really thought that was funny. " +
+                "Guess I'll have to try harder to make you laugh.");
             Console.WriteLine("See ya, next time.");
         }
         else
