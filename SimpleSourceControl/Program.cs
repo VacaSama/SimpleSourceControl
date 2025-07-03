@@ -1,6 +1,7 @@
+
 using System.Net;
 using System.Security.Cryptography;
-
+using System.Collections;
 /**
  * @Author: Kourtnie M.
  * July 2025 - SUMMER 2025
@@ -12,50 +13,55 @@ public class SimpleSourceControl
 {
     static void Main(String[] args)
     {
-        String[] badPuns =
-        {
-                "Why do Java developers wear glasses? \nBecause they don’t C#.",
-                "What do computers snack on during break? \nMicrochips and cookies.",
-                "Why was the computer cold? \nIt left its Windows open. "
-        };
-        CommonBugs();
+        //--------ArrayList for ComputerPuns()----------
+        ArrayList badPuns = new ArrayList();
+        badPuns.Add("Why do Java developers wear glasses? \nBecause they don’t C#.");
+        badPuns.Add ("What do computers snack on during break? \nMicrochips and cookies.");
+        badPuns.Add("Why was the computer cold? \nIt left its Windows open.");
+        // --------ArrayList for CommonBugs()----------
+        ArrayList bugs = new ArrayList();
+        bugs.Add("Praying Mantis");
+        bugs.Add("Cockroach");
+        bugs.Add("Stinkbug");
+        bugs.Add("Bumble Bee");
+        bugs.Add("Ladybug");
+        //--------functions/method calls----------
+        CommonBugs(bugs);
         ComputerPuns(badPuns);
         FeedBack();
     }
 
-    // branch the methods off so that they can be tested independently?
-    static void CommonBugs()
+    static void CommonBugs(ArrayList bugs)
     {
         welcomeMessage();
         Console.WriteLine("Here are some common bugs you may encounter: ");
-        String[] bugs = {
-                "Praying Mantis",
-                "Cockroach",
-                "Stink Bug",
-                "Bumble Bee"};
 
         foreach (String bug in bugs)
         {
-            Console.Write(bug + " ");
+            Console.Write(bug + "." + " ");
+
         }
         Console.WriteLine();
-        Console.WriteLine("\nI think you were expecting software bugs" +
-            "\nJust a little play on words");
+        Console.WriteLine("\nI think you were expecting software bugs," +
+            "\nJust a little play on words.");
     }
+
     static void PestControl() { 
         // this method will tell the user how to "debug and 
         // get rid of the pests in the method above.
     }
-    static void ComputerPuns(string[] badPuns)
+
+    static void ComputerPuns(ArrayList badPuns)
     {
         Console.WriteLine("\nNow it's time for a computer pun :p ");
         Random random = new Random();
 
             // have to use integer division to get a random index
             // it's not like Java.
-            int laugh = random.Next(badPuns.Length);
+            int laugh = random.Next(badPuns.Count);
             Console.WriteLine(badPuns[laugh]);
     }
+  
     static void FeedBack()
     {
         Console.WriteLine("\nDid you enjoy your randomly selected pun? (yes/no) ");
@@ -68,8 +74,12 @@ public class SimpleSourceControl
         }
         else if (response == "no")
         {
-            Console.WriteLine("Aww, I'm sorry to hear that. " +
-                "I will try harder next time.");
+            // since the user said no-- ask them if they have a CPU related pun
+            // that they would like to add to the list. 
+            // Console.ReadLine() -Needed
+            // it will then be added to the list. The answer needs to be separated by \n
+            Console.WriteLine("Darn, I really thought that was funny. " +
+                "Guess I'll have to try harder to make you laugh.");
             Console.WriteLine("See ya, next time.");
         }
         else
