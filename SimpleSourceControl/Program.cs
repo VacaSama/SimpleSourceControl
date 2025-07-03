@@ -1,5 +1,3 @@
-﻿
-
 using System.Net;
 using System.Security.Cryptography;
 
@@ -14,7 +12,6 @@ public class SimpleSourceControl
 {
     static void Main(String[] args)
     {
-        Console.WriteLine("Hello, Source Control!");
         String[] badPuns =
         {
                 "Why do Java developers wear glasses? \nBecause they don’t C#.",
@@ -29,7 +26,7 @@ public class SimpleSourceControl
     // branch the methods off so that they can be tested independently?
     static void CommonBugs()
     {
-        Console.WriteLine("There is a change below");
+        welcomeMessage();
         Console.WriteLine("Here are some common bugs you may encounter: ");
         String[] bugs = {
                 "Praying Mantis",
@@ -78,5 +75,12 @@ public class SimpleSourceControl
             // Call the method again to get feedback
             FeedBack();
         }
+    }
+    
+    static void welcomeMessage() { 
+        Console.WriteLine("Welcome to my Source Control, Mini Project for CPW 211,");
+        Console.WriteLine("Here you'll find bugs you'll run into.");
+        Console.WriteLine("How to debug, and you will be given a randomly generated CPU pun.);
+        Console.WriteLine();
     }
 }
