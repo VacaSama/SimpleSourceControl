@@ -42,6 +42,10 @@ public class SimpleSourceControl
         Console.WriteLine("\nI think you were expecting software bugs" +
             "\nJust a little play on words");
     }
+    static void PestControl() { 
+        // this method will tell the user how to "debug and 
+        // get rid of the pests in the method above.
+    }
     static void ComputerPuns(string[] badPuns)
     {
         Console.WriteLine("\nNow it's time for a computer pun :p ");
