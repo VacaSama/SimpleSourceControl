@@ -1,8 +1,7 @@
-﻿using System.Net;
+
+using System.Net;
 using System.Security.Cryptography;
 using System.Collections;
-
-
 /**
  * @Author: Kourtnie M.
  * July 2025 - SUMMER 2025
@@ -14,7 +13,6 @@ public class SimpleSourceControl
 {
     static void Main(String[] args)
     {
-        Console.WriteLine("Hello, Source Control!");
         //--------ArrayList for ComputerPuns()----------
         ArrayList badPuns = new ArrayList();
         badPuns.Add("Why do Java developers wear glasses? \nBecause they don’t C#.");
@@ -35,7 +33,7 @@ public class SimpleSourceControl
 
     static void CommonBugs(ArrayList bugs)
     {
-        Console.WriteLine("There is a change below");
+        welcomeMessage();
         Console.WriteLine("Here are some common bugs you may encounter: ");
 
         foreach (String bug in bugs)
@@ -47,6 +45,12 @@ public class SimpleSourceControl
         Console.WriteLine("\nI think you were expecting software bugs," +
             "\nJust a little play on words.");
     }
+
+    static void PestControl() { 
+        // this method will tell the user how to "debug and 
+        // get rid of the pests in the method above.
+    }
+
     static void ComputerPuns(ArrayList badPuns)
     {
         Console.WriteLine("\nNow it's time for a computer pun :p ");
@@ -57,7 +61,9 @@ public class SimpleSourceControl
             int laugh = random.Next(badPuns.Count);
             Console.WriteLine(badPuns[laugh]);
     }
+
     static void FeedBack(ArrayList badPuns)
+
     {
         Console.WriteLine("\nDid you enjoy your randomly selected pun? (yes/no) ");
         string response = Console.ReadLine();
@@ -99,5 +105,12 @@ public class SimpleSourceControl
             // Call the method again to get feedback
             FeedBack(badPuns);
         }
+    }
+    
+    static void welcomeMessage() { 
+        Console.WriteLine("Welcome to my Source Control, Mini Project for CPW 211,");
+        Console.WriteLine("Here you'll find bugs you'll run into.");
+        Console.WriteLine("How to debug, and you will be given a randomly generated CPU pun.");
+        Console.WriteLine();
     }
 }
