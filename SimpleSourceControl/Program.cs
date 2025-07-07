@@ -28,7 +28,7 @@ public class SimpleSourceControl
         //--------functions/method calls----------
         CommonBugs(bugs);
         ComputerPuns(badPuns);
-        FeedBack();
+        FeedBack(badPuns);
     }
 
     static void CommonBugs(ArrayList bugs)
@@ -61,8 +61,9 @@ public class SimpleSourceControl
             int laugh = random.Next(badPuns.Count);
             Console.WriteLine(badPuns[laugh]);
     }
-  
-    static void FeedBack()
+
+    static void FeedBack(ArrayList badPuns)
+
     {
         Console.WriteLine("\nDid you enjoy your randomly selected pun? (yes/no) ");
         string response = Console.ReadLine();
@@ -78,16 +79,31 @@ public class SimpleSourceControl
             // that they would like to add to the list. 
             // Console.ReadLine() -Needed
             // it will then be added to the list. The answer needs to be separated by \n
-            Console.WriteLine("Darn, I really thought that was funny. " +
-                "Guess I'll have to try harder to make you laugh.");
-            Console.WriteLine("See ya, next time.");
+            Console.WriteLine("Oh no! Sorry to hear that. " +
+                "\nWould you like to add your own computer related pun? ");
+            string newPun = Console.ReadLine(); // Convert to lowercase for consistency
+
+            if (newPun == "yes")
+            {
+                Console.WriteLine("Okay great! " +
+                    "Please enter your pun followed by the new line shortcut (\\n):" +
+                    "\nThen provide the answer to your pun: ");
+                string userPun = Console.ReadLine();
+                // Add the user's pun to the ArrayList
+                badPuns.Add(userPun);
+            }
+            else
+            {
+                Console.WriteLine("No problem, " +
+                    "I hope you have a great day anyway!");
+            }
         }
         else
         {
             Console.WriteLine("I don't understand your response. " +
                 "Please try again.");
             // Call the method again to get feedback
-            FeedBack();
+            FeedBack(badPuns);
         }
     }
     
